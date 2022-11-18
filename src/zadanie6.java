@@ -1,37 +1,43 @@
-import java.io.IOException;
-import java.io.PrintWriter;
+
+import java.io.File;
 import java.util.Scanner;
+import java.io.IOException;
+
 public class zadanie6 {
-    public static void main(String[] args)throws IOException  {
+    public static void main(String[] args) throws IOException {
         Scanner klawiatura = new Scanner(System.in);
+        System.out.println("Podaj nazwe pliku z rozszerzenim");
+        String nazwapliku;
+        nazwapliku = klawiatura.nextLine();
+        klawiatura.nextLine();
+        File mojPlik = new File (nazwapliku);
+        Scanner fileScanner = new Scanner (mojPlik);
 
-        PrintWriter pw = new PrintWriter("zad6.txt");
-        String name;
-
+        String linia;
         String litera;
 
-        int c=0;
+        linia = fileScanner.nextLine();
 
-        System.out.println("podaj słowo: ");
-        name = klawiatura.nextLine();
+        int h=0;
 
 
-        System.out.println("podaj litere: ");
+
+        System.out.println("podaj litere; ");
         litera = klawiatura.nextLine();
+        int dlugosc = linia.length();
 
-
-
-        for(int i = 1; i <=czas; i++)
+        char inicjal;
+        char litera1 = litera.charAt(0);
+        for(int i = 0; i < dlugosc; i++)
         {
-
-
-
-            suma = predkosc*i;
-            pw.println("podczas " +i+  " godziny przejedziesz "+ suma + " kilometrow");
-
-
+            inicjal = linia.charAt(i);
+            if(inicjal==litera1)
+            {
+                h++;
+            }
 
         }
-        pw.close();
+        System.out.println("Litera "+ litera+" wystepuje " + h + " razy w pliku danie "+ linia);
+
     }
 }
